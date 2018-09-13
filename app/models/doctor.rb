@@ -11,4 +11,7 @@ class Doctor < ApplicationRecord
     normal: 2,
     unwilling: 3
   }
+
+  belongs_to :department
+
 end
