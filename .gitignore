@@ -4,5 +4,5 @@ settings.env
 node_modules/
 db/mysql_data/
 vendor/
-
+public/packs/
 
