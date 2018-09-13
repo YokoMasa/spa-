@@ -9,6 +9,29 @@ class Api::DoctorController < ApplicationController
   end
 
   def create
+    doctor = Doctor.new(doctor_params)
+    if doctor.save
+      head 200
+    else
+      render json: doctor.errors.messages, status: 400
+    end
+  end
+
+  private
+  def doctor_params
+    params.permit(
+      :first_name,
+      :last_name,
+      :hospital_name,
+      :email,
+      :tel,
+      :fax,
+      :comment,
+      :english_speakable,
+      :possibility,
+      :has_ever_involved,
+      :department_id
+    )
   end
 
 end

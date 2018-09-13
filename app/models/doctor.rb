@@ -1,4 +1,6 @@
 class Doctor < ApplicationRecord
+  validates :first_name, :last_name, :hospital_name, presence: true
+  
   enum possibility: {
     unknown: 0,
     willing: 1,
