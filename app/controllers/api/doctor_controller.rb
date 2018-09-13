@@ -1,7 +1,7 @@
 class Api::DoctorController < ApplicationController
 
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.joins(:department).select("doctors.*, departments.name as department_name").all
     render json: @doctors
   end
 
