@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :doctor
   end
+
+  get '*path' => 'home#index'
 end
