@@ -6,6 +6,12 @@ class Api::DoctorController < ApplicationController
   end
 
   def show
+    doctor = Doctor.find_by(id: params[:id])
+    if doctor
+      render json: doctor
+    else
+      head 404
+    end
   end
 
   def create
@@ -13,6 +19,17 @@ class Api::DoctorController < ApplicationController
     if doctor.save
       head 200
     else
+      render json: doctor.errors.messages, status: 400
+    end
+  end
+
+  def update
+    doctor = Doctor.find_by(id: params[:id])
+    head 404 and return unless doctor
+
+    if doctor.update(doctor_params)
+      head 200
+    else 
       render json: doctor.errors.messages, status: 400
     end
   end
