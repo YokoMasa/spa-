@@ -17,6 +17,12 @@ class Api::DoctorController < ApplicationController
     end
   end
 
+  def destroy
+    doctor = Doctor.find_by(id: params[:id])
+    doctor.destroy if doctor
+    head 200
+  end
+
   private
   def doctor_params
     params.permit(
