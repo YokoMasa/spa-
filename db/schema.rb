@@ -10,6 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180913060753) do
+
+  create_table "doctors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "hospital_name", null: false
+    t.string "email"
+    t.string "tel"
+    t.string "fax"
+    t.string "comment"
+    t.integer "english_speakable", default: 0
+    t.integer "possibility", default: 0
+    t.boolean "has_ever_involved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
