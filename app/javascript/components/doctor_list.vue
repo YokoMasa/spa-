@@ -1,23 +1,26 @@
 <template>
   <div>
-    <table class="table">
+    <table class="table is-hoverable is-fullwidth">
       <thead>
         <tr>
-          <td>First name</td>
-          <td>Last name</td>
-          <td>hospital</td>
-          <td>department</td>
-          <td>ever involved</td>
-          <td>email</td>
-          <td>tel</td>
-          <td>fax</td>
-          <td>comment</td>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>hospital</th>
+          <th>department</th>
+          <th>ever involved</th>
+          <th>email</th>
+          <th>tel</th>
+          <th>fax</th>
+          <th>comment</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="doctor in doctors" is="doctor-list-element" :key="doctor.id" :doctor="doctor"></tr>
       </tbody>
     </table>
+    <router-link class="roundButton" to="/doctor/new">
+      <i class="material-icons" style="font-size: 50px;">add</i>
+    </router-link>
   </div>
 </template>
 
@@ -43,8 +46,18 @@ export default {
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+.roundButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #6677CC;
+  box-shadow: 1px 2px 2px 1px #000;
 }
 </style>
