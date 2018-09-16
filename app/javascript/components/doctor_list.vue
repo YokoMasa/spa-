@@ -12,10 +12,14 @@
           <th>tel</th>
           <th>fax</th>
           <th>comment</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="doctor in doctors" is="doctor-list-element" :key="doctor.id" :doctor="doctor"></tr>
+        <tr v-for="doctor in doctors" 
+            is="doctor-list-element" 
+            :key="doctor.id" 
+            :doctor="doctor"></tr>
       </tbody>
     </table>
     <router-link class="roundButton" to="/doctor/new">
@@ -30,6 +34,7 @@ import DoctorListElement from './doctor_list_element.vue'
 
 export default {
   created: function() {
+    this.$emit('title-change', 'Doctor List')
     doctorApi.index().then(data => {
       this.doctors = data
     })
@@ -57,7 +62,7 @@ export default {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #6677CC;
-  box-shadow: 1px 2px 2px 1px #000;
+  background-color: #55dd55;
+  box-shadow: 1px 2px 2px 1px #999;
 }
 </style>

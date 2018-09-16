@@ -51,6 +51,7 @@
     <label class="label">Comment</label>
     <textarea class="textarea" placeholder="comment" v-model="doctorData.comment"></textarea>
 
+    <br>
     <button class="button is-link" @click="submit">submit</button>
 
   </div>
@@ -60,6 +61,11 @@
 <script>
 export default {
   props: ['doctor'],
+  created() {
+    if (this.doctor) {
+      this.doctorData = Object.assign({}, this.doctor)
+    }
+  },
   data() {
     return {
       doctorData: {
@@ -77,7 +83,12 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.doctorData)
+      this.$emit('form-completed', this.doctorData)
+    }
+  },
+  watch: {
+    doctor() {
+      this.doctorData = Object.assign({}, this.doctor)
     }
   }
 }

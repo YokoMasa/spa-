@@ -9,6 +9,11 @@
     <td>{{ doctor.tel }}</td>
     <td>{{ doctor.fax }}</td>
     <td>{{ doctor.comment }}</td>
+    <td>
+      <router-link :to="{ name: 'doc_edit', params: { id: doctor.id } }">
+        <i class="material-icons">create</i>
+      </router-link>
+    </td>
   </tr>
 </template>
 
@@ -24,3 +29,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+i {
+  color: #555;
+}
+
+i:hover {
+  color: #000;
+}
+</style>

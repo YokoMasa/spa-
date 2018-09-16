@@ -42,19 +42,19 @@ class Api::DoctorController < ApplicationController
 
   private
   def doctor_params
-    params.permit(
-      :first_name,
-      :last_name,
-      :hospital_name,
-      :email,
-      :tel,
-      :fax,
-      :comment,
-      :english_speakable,
-      :possibility,
-      :has_ever_involved,
-      :department_id
-    )
+    return {
+      first_name:  params[:first_name],
+      last_name: params[:last_name],
+      hospital_name: params[:hospital_name],
+      email: params[:email],
+      tel: params[:tel],
+      fax: params[:fax],
+      comment: params[:comment],
+      english_speakable: 0,
+      possibility: params[:possibility].to_i,
+      has_ever_involved: params[:has_ever_involved],
+      department_id: 1
+    }
   end
 
 end
